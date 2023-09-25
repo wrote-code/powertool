@@ -4,6 +4,7 @@ database.sqlite
 # idea
 .idea
 *.iml
+out/
 
 # maven
 target
