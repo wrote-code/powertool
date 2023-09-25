@@ -1,6 +1,8 @@
 <configuration>
   <property name="consolePattern" value="%date{yyyy-MM-dd HH:mm:ss:SSS} %.-1level{1} [%25.25thread]
 [%30.30logger{30}#%-20.20(%method:%line)] %message%n"/>
+  <property name="logDir" value="${logDir:-logs}"/>
+  <property name="appName" value="${appName:-powertool}"/>
 
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
@@ -10,7 +12,23 @@
     </encoder>
   </appender>
 
+  <appender name="ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${logDir}/${appName}.log</file>
+    <encoder>
+      <pattern>
+        ${consolePattern}
+      </pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>logs/archive/%d{yyyyMMdd}/${appName}.%i.log.zip</fileNamePattern>
+      <maxFileSize>50MB</maxFileSize>
+      <maxHistory>60</maxHistory>
+      <totalSizeCap>1GB</totalSizeCap>
+    </rollingPolicy>
+  </appender>
+
   <root level="INFO">
     <appender-ref ref="STDOUT"/>
+    <appender-ref ref="ALL"/>
   </root>
 </configuration>
