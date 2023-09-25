@@ -46,8 +46,8 @@ public class FileUtils {
     public static void copyFile(String sourcePath, String targetPath) {
         File sourceFile = new File(sourcePath);
         File targetFile = new File(targetPath);
-        try (FileInputStream is = new FileInputStream(sourceFile);
-             FileOutputStream os = new FileOutputStream(targetFile)) {
+        try (FileInputStream is = new FileInputStream(sourceFile); FileOutputStream os = new FileOutputStream(
+                targetFile)) {
             byte[] bytes = new byte[BYTE_BUFFER];
             int length;
             while ((length = is.read(bytes)) != -1) {
@@ -85,6 +85,17 @@ public class FileUtils {
      */
     public static boolean mkdir(String parent, String name) {
         return mkdir(parent + File.separator + name);
+    }
+
+    /**
+     * 获取指定路径的文件名。
+     *
+     * @param path 路径。
+     *
+     * @return 文件名。
+     */
+    public static String getFileName(String path) {
+        return new File(path).getName();
     }
 
 }
