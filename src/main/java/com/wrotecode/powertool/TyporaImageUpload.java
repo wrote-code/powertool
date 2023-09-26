@@ -64,6 +64,7 @@ public class TyporaImageUpload {
                         .append(System.lineSeparator());
             }
         }
+        log.info("上传完成\r\n:{}", urlBuilder);
         // 根据typora规范，图床返回的url通过标准输出展示
         System.out.println(urlBuilder);
     }
