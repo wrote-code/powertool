@@ -20,7 +20,7 @@
       </pattern>
     </encoder>
     <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-      <fileNamePattern>logs/archive/%d{yyyyMMdd}/${appName}.%i.log.zip</fileNamePattern>
+      <fileNamePattern>${logDir}/archive/%d{yyyyMMdd}/${appName}.%i.log.zip</fileNamePattern>
       <maxFileSize>50MB</maxFileSize>
       <maxHistory>60</maxHistory>
       <totalSizeCap>1GB</totalSizeCap>
