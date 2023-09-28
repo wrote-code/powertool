@@ -1,0 +1,1 @@
+java -DfileDir=fileDir -Dserver=server -Dfile.encoding=utf-8 -DappName=typora-upload -DlogDir=app_home\logs -cp "app_home\lib\powertool-0.0.1-alpha.jar;app_home\lib\logback-classic-1.2.3.jar;app_home\lib\logback-core-1.2.3.jar;app_home\lib\slf4j-api-1.7.30.jar" com.wrotecode.powertool.TyporaImageUpload %*
